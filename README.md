@@ -1,4 +1,4 @@
-# vue2-add-el
+# mock-configuration
 
 ## Project setup
 ```

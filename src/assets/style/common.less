@@ -1,0 +1,54 @@
+#app {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+// 清除浮动
+.com-clear-float {
+  &::after {
+    content: ".";
+    height: 0;
+    clear: both;
+    display: block;
+    visibility: hidden;
+  }
+}
+
+// 公用的滚动条样式
+.com-scroll-style(@width: 6px) {
+  &::-webkit-scrollbar {
+    width: @width;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 3px;
+    height: 3px;
+    background: #7b8190;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    height: 5px;
+    background: #fff;
+  }
+}
+
+// 一行省略号
+.row-ellipsis-style {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 多行省略
+.line-clamp-number(@lines: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+}
+

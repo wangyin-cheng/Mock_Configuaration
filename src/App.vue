@@ -1,32 +1,53 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <TopComponents />
+    <div class="app-main com-clear-float">
+      <div class="menu-warp">
+        <NavMenu />
+      </div>
+      <div class="router-main">
+        <div class="view">
+          <router-view/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import TopComponents from '@components/topComponents/top'
+import NavMenu from '@components/appMenu'
+export default {
+  components: {
+    TopComponents,
+    NavMenu
+  }
 }
+</script>
+<style lang="less" scoped>
+.app-main {
+  width: 100%;
+  height: calc(100% - 50px);
+  position: relative;
+  box-sizing: border-box;
 
-nav {
-  padding: 30px;
-}
+  .menu-warp {
+    width: 220px;
+    float: left;
+    background: white;
+  }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  .router-main {
+    width: calc(100% - 220px);
+    float: right;
+    height: 100%;
+    background: #c8c8c8;
+    padding: 10px;
 
-nav a.router-link-exact-active {
-  color: #42b983;
+    .view {
+      background: white;
+      border-radius: 8px;
+      height: 100%;
+    }
+  }
 }
 </style>
