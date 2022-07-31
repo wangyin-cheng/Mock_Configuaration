@@ -64,7 +64,6 @@ export default {
     currentSub: {
       immediate: true,
       handler(val) {
-        this.defaultActiveIndex = val === 'post' ? '/home' : ''
         this.menuList = menuTargetList[val]
       }
     }
@@ -72,7 +71,7 @@ export default {
   data() {
     return {
       menuList: [],
-      defaultActiveIndex: '/home'
+      defaultActiveIndex: ''
     }
   },
   methods: {

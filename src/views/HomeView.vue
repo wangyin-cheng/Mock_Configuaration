@@ -21,13 +21,13 @@
           style="width: 100%">
         <el-table-column
             align="center"
-            prop="serial_num"
+            prop="serialNum"
             label="序号"
             width="150">
         </el-table-column>
         <el-table-column
             align="center"
-            prop="age"
+            prop="functionId"
             label="功能号"
             width="150">
         </el-table-column>
@@ -62,7 +62,6 @@
 </template>
 
 <script>
-import { marked } from 'marked';
 export default {
   name: 'HomeView',
   components: {},
@@ -80,11 +79,6 @@ export default {
     this.initPage();
   },
   methods: {
-    testFunc() {
-      // marked 文件需要先通过接口的方式请求.md 文件获取值再通过marked.parse 赋值给html
-      this.text =  marked.parse('# Marked in Node.js\n\nRendered by **marked**.');
-      this.$services.test({})
-    },
     initPage() {
       this.initTableFunc()
     },
@@ -94,20 +88,29 @@ export default {
         page_index: this.pageIndex,
         page_size: this.pageSize
       }
-      this.$services.test(params).then((res) => {
+      // this.$services.test({
+      //   method: 'get',
+      //   data: {}
+      // })
+      this.$services.test({data: params}).then((res) => {
         if(res && res.data) {
           this.tableData = res.data.map((item,index) => {
             return {
               ...item,
-              serial_num: index + 1
+              serialNum: index + 1,
+              functionId : item.ff
             }
           })
           this.pageTotal = Number(res.total)
         }
       })
     },
-    handleSizeChange() {},
-    handleCurrentChange() {},
+    handleSizeChange() {
+
+    },
+    handleCurrentChange() {
+
+    },
   }
 }
 </script>
