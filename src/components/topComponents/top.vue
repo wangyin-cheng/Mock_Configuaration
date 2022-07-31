@@ -1,7 +1,8 @@
 <template>
   <div class="top-warp">
     <div class="image-main">
-      <img alt="Vue logo" src="@assets/image/logo.png">
+      <!-- <img alt="Vue logo" src="@assets/image/logo.png"> -->
+      Mock服务
     </div>
     <div class="top-main">
       <span v-for="(item,index) in butList" :key="index" :class="{'action-span': item.value === currentSpan, 'span-class': true}" @click="spanClick(item)">
