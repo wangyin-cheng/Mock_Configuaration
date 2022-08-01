@@ -40,7 +40,7 @@ export default {
     width: calc(100% - 220px);
     float: right;
     height: 100%;
-    background: #c8c8c8;
+    background: #f0f2f5;
     padding: 10px;
 
     .view {

@@ -1,12 +1,12 @@
 <template>
   <div class="top-warp">
-    <div class="image-main">
-      <!-- <img alt="Vue logo" src="@assets/image/logo.png"> -->
-      Mock服务
+    <div class="image-main" @click="welcomeClick">
+      <img alt="Vue logo" src="@assets/image/logo.png">
     </div>
     <div class="top-main">
-      <span v-for="(item,index) in butList" :key="index" :class="{'action-span': item.value === currentSpan, 'span-class': true}" @click="spanClick(item)">
-        {{item.label}}
+      <span v-for="(item,index) in butList" :key="index"
+            :class="{'action-span': item.value === currentSpan, 'span-class': true}" @click="spanClick(item)">
+        {{ item.label }}
       </span>
     </div>
   </div>
@@ -17,18 +17,21 @@ export default {
   name: "TopComponents",
   data() {
     return {
-        text: '',
-        currentSpan: 'post',
-        butList: [
-          {value: 'post', label: '接口列表'},
-          {value: 'other', label: '新增接口'}
-        ]
+      text: '',
+      currentSpan: 'post',
+      butList: [
+        {value: 'post', label: '接口列表'},
+        {value: 'other', label: '新增接口'}
+      ]
     }
   },
   methods: {
     spanClick(item) {
       this.currentSpan = item.value;
       this.$store.commit('setCurrentSub', this.currentSpan)
+    },
+    welcomeClick() {
+      this.$router.push('/welcome')
     }
   }
 }
@@ -45,6 +48,7 @@ export default {
 
 
   .image-main {
+    cursor: pointer;
     width: 220px;
     display: flex;
     justify-content: center;
@@ -63,7 +67,7 @@ export default {
     color: #fff;
     font-size: 14px;
     cursor: pointer;
-    vertical-align:middle;
+    vertical-align: middle;
     position: relative;
     margin: 0 10px;
 

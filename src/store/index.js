@@ -5,7 +5,7 @@ Vue.use(Vuex)
 const menuTargetList = {
   post: [
     {
-      name: 'mack配置',
+      name: 'MOCK配置',
       childList: [
         {
           name: '接口列表',
