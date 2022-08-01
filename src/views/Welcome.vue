@@ -1,5 +1,5 @@
 <template>
-  <div v-html="htmlContent">
+  <div class="html-wrapper" v-html="htmlContent">
   </div>
 </template>
 
@@ -25,6 +25,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+.html-wrapper {
+  padding: 10px 15px;
+}
 </style>
